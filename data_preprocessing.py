@@ -16,12 +16,8 @@ print(df.isnull().sum())
 # Drop rows with missing values
 df = df.dropna()
 
-# Convert date columns to datetime type (make sure to use the correct column name)
-if 'published_timestamp' in df.columns:
-    df['published_timestamp'] = pd.to_datetime(df['published_timestamp'])
-else:
-    print("Column 'published_timestamp' not found in the dataset.")
-    print("Available columns:", df.columns)
+# Convert date columns to datetime type
+df['last_update'] = pd.to_datetime(df['last_update'])
 
 # Check the data types again
 print(df.dtypes)
